@@ -4,22 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <title>管理者登録</title>
-    <link rel="stylesheet" href="/css/admin_register.css">
+    <link rel="stylesheet" href="css/admin_register.css">
 </head>
 
 <body>
     <div class="container">
         <h1>管理者登録</h1>
-        <form action="#" method="post">
-            <label for="username">ユーザー名:</label>
-            <input type="text" id="username" name="username" th:field="*{username}" required>
-
-            <label for="password">パスワード:</label>
-            <input type="password" id="password" name="password" th:field="*{password}" required>
-
-            <label for="email">メールアドレス:</label>
-            <input type="email" id="email" name="email" th:field="*{email}" required>
-
+        <form action="/register" method="post">
+            <div class="form-group">
+                <label for="username">ユーザー名:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">パスワード:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
             <button type="submit">登録</button>
         </form>
     </div>
