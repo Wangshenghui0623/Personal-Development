@@ -1,5 +1,7 @@
 package Blog.com.models.entity;
 
+import java.sql.Timestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,7 +9,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Blog_posts {
-//admin_idの設定
+//post_idの設定
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int postId;
@@ -16,23 +18,23 @@ public class Blog_posts {
 	private int adminId;
 
 	// titleの設定
-	private char title;
+	private String title;
 
 	// contentの設定
-	private char content;
+	private String content;
 
 	// created_at
-	private int createdAt;
+	private Timestamp createdAt;
 
 	// updated_at
-	private int updatedAt;
+	private Timestamp updatedAt;
 
 	// 空のコンストラクタ
 	public Blog_posts() {
 	}
 
 	// コンストラクタ
-	public Blog_posts(int adminId, char title, char content, int createdAt, int updatedAt) {
+	public Blog_posts(int adminId, String title, String content, Timestamp createdAt, Timestamp updatedAt) {
 		this.adminId = adminId;
 		this.title = title;
 		this.content = content;
@@ -57,35 +59,35 @@ public class Blog_posts {
 		this.adminId = adminId;
 	}
 
-	public char getTitle() {
+	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(char title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	public char getContent() {
+	public String getContent() {
 		return content;
 	}
 
-	public void setContent(char content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 
-	public int getCreatedAt() {
+	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(int createdAt) {
+	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public int getUpdatedAt() {
+	public Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(int updatedAt) {
+	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 

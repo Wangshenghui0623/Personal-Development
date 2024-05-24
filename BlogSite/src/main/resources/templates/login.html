@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>ログイン</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
 </head>
 
 <body>
     <div class="container">
         <h1>ログイン</h1>
-        <form action="/login" method="post">
+        <form th:action="@{/admin/login/process}" method="post">
             <div class="form-group">
                 <label for="username">ユーザー名:</label>
                 <input type="text" id="username" name="username" placeholder="ユーザー名を書いてください。" required>

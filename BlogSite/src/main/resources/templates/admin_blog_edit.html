@@ -2,61 +2,48 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>ブログ編集</title>
-    <link rel="stylesheet" href="/css/admin_blog_edit.css">
+	<meta charset="UTF-8">
+	<title>ブログ編集</title>
+	<link rel="stylesheet" href="/css/admin_blog_edit.css">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="http://127.0.0.1:5500/admin_profile.html">個人資料</a></li>
-                    <li><a href="http://127.0.0.1:5500/admin_blog_list.html">ブログ一覧</a></li>
-                    <li><a href="http://127.0.0.1:5500/login.html">ログアウト</a></li>
-                </ul>
-            </nav>
-        </header>
-        <h1>ブログ編集</h1>
-        <form action="/blog_edit" method="post">
-            <div class="form-group">
-                <label for="title">タイトル:</label>
-                <input type="text" id="title" name="title" placeholder="タイトルを入力してください。" required>
-            </div>
-            <div>
-                <label for="time">日付:</label>
-                <input type="date" id="time" name="time" required>
-            </div>
-            <div>
-                <label for="category">カテゴリー:</label>
-                <select name="category" id="category" required>
-                    <option value=""></option>
-                    <option value="">技術とプログラミング</option>
-                    <option value="">ライフスタイル</option>
-                    <option value="">学習と教育</option>
-                    <option value="">クリエイティブとアート</option>
-                    <option value="">キャリア開発</option>
-                    <option value="">時事と意見</option>
-                    <option value="">製品とレビュー</option>
-                    <option value="">個人随筆</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="content">本文:</label>
-                <textarea id="content" name="content" rows="10" placeholder="内容を入力してください。" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="image">画像、音声、ビデオ:</label>
-                <input type="file" id="image" name="image">
-            </div>
-            <div>
-                <button><a href="http://127.0.0.1:5500/blog_view.html">変更</a></button>
-                <button><a href="http://127.0.0.1:5500/blog_list.html">戻る</a></button>
-            </div>
-        </form>
-        <footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
-    </div>
+	<div class="container">
+		<header>
+			<nav>
+				<ul>
+					<li><a href="http://127.0.0.1:5500/admin_profile.html">個人資料</a></li>
+					<li><a href="http://127.0.0.1:5500/admin_blog_list.html">ブログ一覧</a></li>
+					<li><a href="http://127.0.0.1:5500/login.html">ログアウト</a></li>
+				</ul>
+			</nav>
+		</header>
+		<h1>ブログ編集</h1>
+		<form action="/blog_edit" method="post">
+			<div class="form-group">
+				<label for="title">タイトル:</label>
+				<input type="text" id="title" name="title" placeholder="タイトルを入力してください。" required>
+			</div>
+			<div>
+				<label for="time">日付:</label>
+				<input type="date" id="time" name="time" required>
+			</div>
+
+			<div class="form-group">
+				<label for="content">本文:</label>
+				<textarea id="content" name="content" rows="10" placeholder="内容を入力してください。" required></textarea>
+			</div>
+			<div class="form-group">
+				<label for="image">画像、音声、ビデオ:</label>
+				<input type="file" id="image" name="image">
+			</div>
+			<div>
+				<button><a href="http://127.0.0.1:5500/blog_view.html">変更</a></button>
+				<button><a href="http://127.0.0.1:5500/blog_list.html">戻る</a></button>
+			</div>
+		</form>
+		<footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
+	</div>
 </body>
 
 </html>

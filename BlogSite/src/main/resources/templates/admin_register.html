@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>管理者登録</title>
-    <link rel="stylesheet" href="css/admin_register.css">
+    <link rel="stylesheet" th:href="@{/css/admin_register.css}">
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
 </head>
 
 <body>
     <div class="container">        
         <h1>管理者登録</h1>
-        <form action="/register" method="post">
+        <form th:action="@{/admin/register/process}" method="post">
             <div class="form-group">
                 <label for="username">ユーザー名:</label>
                 <input type="text" id="username" name="username" placeholder="ユーザー名を入力してください。" required>
