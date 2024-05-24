@@ -1,7 +1,6 @@
 package Blog.com.models.entity;
 
 import java.sql.Timestamp;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,40 +8,30 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Blog_posts {
-//post_idの設定
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int postId;
 
-	// admin_idの設定
 	private int adminId;
-
-	// titleの設定
 	private String title;
-
-	// contentの設定
 	private String content;
-
-	// created_at
+	private String imagePath;
 	private Timestamp createdAt;
-
-	// updated_at
 	private Timestamp updatedAt;
 
-	// 空のコンストラクタ
 	public Blog_posts() {
 	}
 
-	// コンストラクタ
-	public Blog_posts(int adminId, String title, String content, Timestamp createdAt, Timestamp updatedAt) {
+	public Blog_posts(int adminId, String title, String content, String imagePath, Timestamp createdAt,
+			Timestamp updatedAt) {
 		this.adminId = adminId;
 		this.title = title;
 		this.content = content;
+		this.imagePath = imagePath;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 	}
 
-	// ゲッターとセッター
 	public int getPostId() {
 		return postId;
 	}
@@ -75,6 +64,14 @@ public class Blog_posts {
 		this.content = content;
 	}
 
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
@@ -90,5 +87,4 @@ public class Blog_posts {
 	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
 }

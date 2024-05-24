@@ -8,15 +8,15 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class LogoutController {
-	@Autowired
-	private HttpSession session;
+    @Autowired
+    private HttpSession session;
 
-	// ログアウト処理
-	@GetMapping("/admin/logout")
-	public String adminLogout() {
-		// セッションの無効化
-		session.invalidate();
-		return "login.html";
-	}
-
+    // ログアウト処理
+    @GetMapping("/admin/logout")
+    public String adminLogout() {
+        // セッションの無効化
+        session.invalidate();
+        // リダイレクトでログインページに戻る
+        return "redirect:/admin/login";
+    }
 }

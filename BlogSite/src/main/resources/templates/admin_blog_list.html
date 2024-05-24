@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,8 +12,9 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href="http://127.0.0.1:5500/admin_profile.html">個人資料</a></li>
-                    <li><a th:href="@{login.htmls}">ログアウト</a></li>
+                    <li><a href="/admin_profile">個人資料</a></li>
+                    <li><a th:href="@{/admin/logout}">ログアウト</a></li>
+                    <li><a th:href="@{/blog/register}">ブログ登録</a></li>
                 </ul>
             </nav>
         </header>
