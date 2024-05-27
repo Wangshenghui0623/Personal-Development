@@ -39,4 +39,8 @@ public class BlogListController {
 		}
 	}
 
+	@GetMapping("/admin_profile")
+	public String showAdminProfile() {
+		return "admin_profile"; // admin_profile.html というテンプレートに遷移します
+	}
 }

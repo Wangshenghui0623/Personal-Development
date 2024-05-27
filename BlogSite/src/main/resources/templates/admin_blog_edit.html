@@ -13,14 +13,17 @@
 		<header>
 			<nav>
 				<ul>
-					<li><a href="http://127.0.0.1:5500/admin_profile.html">個人資料</a></li>
-					<li><a href="http://127.0.0.1:5500/admin_blog_list.html">ブログ一覧</a></li>
-					<li><a href="http://127.0.0.1:5500/login.html">ログアウト</a></li>
+					<li><a th:href="@{/admin/blog_list}">ブログ一覧</a></li>
+					<li><a th:href="@{/admin/logout}">ログアウト</a></li>
 				</ul>
 			</nav>
 		</header>
+
+
 		<h1>ブログ編集</h1>
-		<!-- フォームの開始 -->
+
+
+		<!-- ブログ編集フォーム -->
 		<form action="/blog_edit" method="post">
 			<!-- タイトル入力フィールド -->
 			<div class="form-group">
@@ -42,10 +45,12 @@
 				<label for="image">画像、音声、ビデオ:</label>
 				<input type="file" id="image" name="image">
 			</div>
-			<!-- ボタン -->
-			<div>
-				<button type="submit">変更</button>
-				<button type="button" onclick="location.href='http://127.0.0.1:5500/blog_list.html'">戻る</button>
+
+
+
+			<div class="form-group">
+				<button type="submit">更新</button>
+				<button type="button" onclick="history.back();">戻る</button>
 			</div>
 		</form>
 		<!-- フッター -->

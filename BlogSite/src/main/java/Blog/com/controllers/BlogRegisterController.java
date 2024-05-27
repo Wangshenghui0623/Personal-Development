@@ -53,10 +53,13 @@ public class BlogRegisterController {
 			@RequestParam String content, @RequestParam MultipartFile image, Model model) {
 		Admins admin = (Admins) session.getAttribute("loginAdminInfo");
 
+		// もし、同じファイルの名前がなかったら保存
+		// ブログ一覧画面にダイレクトする
+		// そうでない場合、ブログ登録画面にとどまります。
 		if (admin == null) {
 			return "redirect:/login";
 		} else {
-			// ファイル名を現在の日付と時間で一意に生成
+			// ファイル名を現在の日付と時間で一緒に生成
 			String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date())
 					+ image.getOriginalFilename();
 
@@ -89,7 +92,10 @@ public class BlogRegisterController {
 			}
 
 			// ブログ一覧画面に遷移
-			return "admin_blog_list";
+			// 遷移するのは最初のブログ一覧画面（// return "admin_blog_list";）ではなく、更新した後のブログ一覧画面です。
+			//
+			return "redirect:/admin/blog_list";
+
 		}
 	}
 }

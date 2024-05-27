@@ -11,14 +11,8 @@ public class AdminsServices {
 	@Autowired
 	private AdminsDao adminsDao;
 
-	/**
-	 * 管理者アカウントを作成するメソッド。 ユーザー名が既に存在しない場合に新しい管理者アカウントを作成します。
-	 *
-	 * @param username ユーザー名
-	 * @param password パスワード
-	 * @param email    メールアドレス
-	 * @return アカウント作成に成功した場合はtrue、失敗した場合はfalse
-	 */
+	// 管理者アカウントを作成するメソッド。 ユーザー名が既に存在しない場合に新しい管理者アカウントを作成します。
+	// アカウント作成に成功した場合はtrue、失敗した場合はfalse
 	public boolean createAdmin(String username, String password, String email) {
 		// ユーザー名で検索し、存在しない場合は新しい管理者アカウントを作成
 		if (adminsDao.findByUsername(username) == null) {
@@ -30,13 +24,8 @@ public class AdminsServices {
 		}
 	}
 
-	/**
-	 * ログイン処理を行うメソッド。 指定されたユーザー名とパスワードが一致する管理者アカウントを検索します。
-	 *
-	 * @param username ユーザー名
-	 * @param password パスワード
-	 * @return 一致する管理者アカウントが存在する場合はAdminsオブジェクト、存在しない場合はnull
-	 */
+	// ログイン処理を行うメソッド。 指定されたユーザー名とパスワードが一致する管理者アカウントを検索します。
+	// 一致する管理者アカウントが存在する場合はAdminsオブジェクト、存在しない場合はnull
 	public Admins loginCheck(String username, String password) {
 		// ユーザー名とパスワードで検索し、一致する管理者アカウントを取得
 		Admins admins = adminsDao.findByUsernameAndPassword(username, password);

@@ -9,41 +9,51 @@
 </head>
 
 <body>
-	<div class="container">
-		<header>
-			<nav>
-				<ul>
-					<!-- ブログ一覧ページへのリンク -->
-					<li><a href="http://127.0.0.1:5500/admin_blog_list.html">ブログ一覧</a></li>
-					<!-- ログアウトページへのリンク -->
-					<li><a href="http://127.0.0.1:5500/login.html">ログアウト</a></li>
-				</ul>
-			</nav>
-		</header>
-		<h1>個人資料</h1>
 
-		<!-- プロフィール更新フォーム -->
-		<form action="/update-profile" method="post">
-			<div class="form-group">
-				<label for="username">ユーザー名:</label>
-				<input type="text" id="username" name="username" required>
-			</div>
-			<div class="form-group">
-				<label for="email">メールアドレス:</label>
-				<input type="email" id="email" name="email" required>
-			</div>
-			<div class="form-group">
-				<label for="password">パスワード:</label>
-				<input type="password" id="password" name="password">
-			</div>
-			<div class="form-group">
-				<label for="bio">自己紹介:</label>
-				<textarea id="bio" name="bio" rows="4"></textarea>
-			</div>
-			<button type="submit">保存</button>
-		</form>
-		<footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
-	</div>
+	<main>
+		<div class="container">
+			<header>
+				<nav>
+					<ul>
+						<!-- ブログ一覧ページへのリンク -->
+						<li><a th:href="@{/admin/blog_list}">ブログ一覧</a></li>
+						<!-- ログアウトページへのリンク -->
+						<li><a th:href="@{/admin/logout}">ログアウト</a></li>
+					</ul>
+				</nav>
+			</header>
+
+
+
+			<h1>個人資料</h1>
+
+			<!-- プロフィール更新フォーム -->
+			<form action="/update-profile" method="post">
+				<div class="form-group">
+					<label for="username">ユーザー名:</label>
+					<input type="text" id="username" name="username" required>
+				</div>
+
+				<div class="form-group">
+					<label for="bio">自己紹介:</label>
+					<textarea id="bio" name="bio" rows="4"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="email">メールアドレス:</label>
+					<input type="email" id="email" name="email" required>
+				</div>
+				<div class="form-group">
+					<label for="password">パスワード:</label>
+					<input type="password" id="password" name="password">
+				</div>
+				<button type="submit">保存</button>
+			</form>
+
+
+			<footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
+		</div>
+
+	</main>
 </body>
 
 </html>
