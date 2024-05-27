@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Blog_posts {
+public class BlogPosts {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int postId;
@@ -19,10 +19,10 @@ public class Blog_posts {
 	private Timestamp createdAt;
 	private Timestamp updatedAt;
 
-	public Blog_posts() {
+	public BlogPosts() {
 	}
 
-	public Blog_posts(int adminId, String title, String content, String imagePath, Timestamp createdAt,
+	public BlogPosts(int adminId, String title, String content, String imagePath, Timestamp createdAt,
 			Timestamp updatedAt) {
 		this.adminId = adminId;
 		this.title = title;

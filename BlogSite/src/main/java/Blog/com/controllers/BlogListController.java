@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import Blog.com.models.entity.Admins;
-import Blog.com.models.entity.Blog_posts;
+import Blog.com.models.entity.BlogPosts;
 import Blog.com.services.BlogPostsService;
 import jakarta.servlet.http.HttpSession;
 
@@ -26,7 +26,7 @@ public class BlogListController {
         if (admin == null) {
             return "login.html";
         } else {
-            List<Blog_posts> blogPostsList = blogpostsService.selectAllAdminBlogList(admin.getAdminId());
+            List<BlogPosts> blogPostsList = blogpostsService.selectAllAdminBlogList(admin.getAdminId());
             model.addAttribute("username", admin.getUsername());
             model.addAttribute("blogPostsList", blogPostsList);
             return "admin_blog_list";

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import Blog.com.models.entity.Admins;
-import Blog.com.models.entity.Blog_posts;
+import Blog.com.models.entity.BlogPosts;
 import Blog.com.services.BlogPostsService;
 import jakarta.servlet.http.HttpSession;
 
@@ -30,7 +30,7 @@ public class BlogEditController {
             return "redirect:/login";
         } else {
             // 編集画面に表示させる情報を変数に格納 blogPosts
-            Blog_posts blogPosts = blogPostsService.blogEditCheck(blogId);
+            BlogPosts blogPosts = blogPostsService.blogEditCheck(blogId);
             // もし、blogPosts==nullだったら、ブログ一覧画面ページいリダイレクトする
             // そうでない場合、編集画面に編集する内容を渡す
             // 編集画面を表示
