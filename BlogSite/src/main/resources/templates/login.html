@@ -2,32 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>ログイン</title>
-    <link rel="stylesheet" th:href="@{/css/login.css}">
+	<meta charset="UTF-8">
+	<title>ログイン</title>
+	<!-- CSSファイルのリンク -->
+	<link rel="stylesheet" th:href="@{/css/login.css}">
 	<link rel="stylesheet" th:href="@{/css/reset.css}">
 </head>
 
 <body>
-    <div class="container">
-        <h1>ログイン</h1>
-        <form th:action="@{/admin/login/process}" method="post">
-            <div class="form-group">
-                <label for="username">ユーザー名:</label>
-                <input type="text" id="username" name="username" placeholder="ユーザー名を書いてください。" required>
-            </div>
-            <div class="form-group">
-                <label for="password">パスワード:</label>
-                <input type="password" id="password" name="password" placeholder="パスワードを書いてください。" required>
-            </div>
-            <button>ログイン</button>
-
-            <p>新規登録は<span style="color: rgb(149, 38, 117)"><strong><a
-                            href="/admin/register">こちら</a></strong></span></p>
-
-        </form>
-        <footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
-    </div>
+	<div class="container">
+		<h1>ログイン</h1>
+		<!-- ログインフォーム -->
+		<form th:action="@{/admin/login/process}" method="post">
+			<!-- ユーザー名入力フィールド -->
+			<div class="form-group">
+				<label for="username">ユーザー名:</label>
+				<input type="text" id="username" name="username" placeholder="ユーザー名を書いてください。" required>
+			</div>
+			<!-- パスワード入力フィールド -->
+			<div class="form-group">
+				<label for="password">パスワード:</label>
+				<input type="password" id="password" name="password" placeholder="パスワードを書いてください。" required>
+			</div>
+			<!-- ログインボタン -->
+			<button type="submit">ログイン</button>
+			<!-- 新規登録リンク -->
+			<p>新規登録は<span style="color: rgb(149, 38, 117)"><strong><a href="/admin/register">こちら</a></strong></span></p>
+		</form>
+		<footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
+	</div>
 </body>
 
 </html>

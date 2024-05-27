@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ブログ編集</title>
+	<!-- CSSファイルのリンク -->
 	<link rel="stylesheet" th:href="@{/css/admin_blog_edit.css}">
 </head>
 
@@ -19,29 +20,35 @@
 			</nav>
 		</header>
 		<h1>ブログ編集</h1>
+		<!-- フォームの開始 -->
 		<form action="/blog_edit" method="post">
+			<!-- タイトル入力フィールド -->
 			<div class="form-group">
 				<label for="title">タイトル:</label>
 				<input type="text" id="title" name="title" placeholder="タイトルを入力してください。" required>
 			</div>
+			<!-- 日付入力フィールド -->
 			<div>
 				<label for="time">日付:</label>
 				<input type="date" id="time" name="time" required>
 			</div>
-
+			<!-- 本文入力フィールド -->
 			<div class="form-group">
 				<label for="content">本文:</label>
 				<textarea id="content" name="content" rows="10" placeholder="内容を入力してください。" required></textarea>
 			</div>
+			<!-- ファイル入力フィールド -->
 			<div class="form-group">
 				<label for="image">画像、音声、ビデオ:</label>
 				<input type="file" id="image" name="image">
 			</div>
+			<!-- ボタン -->
 			<div>
-				<button><a href="http://127.0.0.1:5500/blog_view.html">変更</a></button>
-				<button><a href="http://127.0.0.1:5500/blog_list.html">戻る</a></button>
+				<button type="submit">変更</button>
+				<button type="button" onclick="location.href='http://127.0.0.1:5500/blog_list.html'">戻る</button>
 			</div>
 		</form>
+		<!-- フッター -->
 		<footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
 	</div>
 </body>

@@ -19,26 +19,36 @@ public class LoginController {
 	@Autowired
 	private HttpSession session;
 
-	// ログイン画面の表示
+	/**
+	 * ログイン画面を表示するメソッド。
+	 * 
+	 * @return ログイン画面のテンプレート名
+	 */
 	@GetMapping("/admin/login")
 	public String login() {
 		return "login";
 	}
 
-	// ログイン処理
+	/**
+	 * ログイン処理を行うメソッド。 フォームから送信されたユーザー名とパスワードを使用して認証を行います。
+	 * 認証に成功した場合は、管理者情報をセッションに保存し、ブログ一覧画面にリダイレクトします。 認証に失敗した場合は、再度ログイン画面を表示します。
+	 *
+	 * @param username ユーザー名
+	 * @param password パスワード
+	 * @return リダイレクト先またはログイン画面のテンプレート名
+	 */
 	@PostMapping("/admin/login/process")
 	public String adminLoginProcess(@RequestParam String username, @RequestParam String password) {
-		// loginCheckメソッドを呼び出してその結果をadminsという変数に格納
+		// loginCheckメソッドを呼び出してその結果をadminという変数に格納
 		Admins admin = adminsServices.loginCheck(username, password);
-		// もし、admins == nullログイン画面にとどまります。
-		// そうでない場合、sessionにログイン情報に保存
-		// ブログ一覧画面にリダイレクトする/blog/list
-		if (admin == null) {
-			return "login.html";
-		} else {
-			session.setAttribute("loginAdminInfo", admin);
-			return "admin_blog_list.html";
-		}
 
+		// 認証に失敗した場合はログイン画面を再表示
+		if (admin == null) {
+			return "login";
+		} else {
+			// 認証に成功した場合は、セッションにログイン情報を保存し、ブログ一覧画面にリダイレクト
+			session.setAttribute("loginAdminInfo", admin);
+			return "redirect:/admin/blog_list";
+		}
 	}
 }

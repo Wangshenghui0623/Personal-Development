@@ -7,61 +7,108 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Admins {
-    // admin_idの設定
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int adminId;
+	// 管理者IDの設定
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int adminId;
 
-    // username
-    private String username;
+	// ユーザー名の設定
+	private String username;
 
-    // password
-    private String password;
+	// パスワードの設定
+	private String password;
 
-    // email
-    private String email;
+	// メールアドレスの設定
+	private String email;
 
-    // 空のコンストラクタ
-    public Admins() {
-    }
+	// 空のコンストラクタ
+	public Admins() {
+	}
 
-    // コンストラクタ
-    public Admins(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
+	/**
+	 * 管理者のコンストラクタ。
+	 *
+	 * @param username ユーザー名
+	 * @param password パスワード
+	 * @param email    メールアドレス
+	 */
+	public Admins(String username, String password, String email) {
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
 
-    // ゲッターとセッター
-    public int getAdminId() {
-        return adminId;
-    }
+	// ゲッターとセッター
 
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
-    }
+	/**
+	 * 管理者IDを取得する。
+	 * 
+	 * @return 管理者ID
+	 */
+	public int getAdminId() {
+		return adminId;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	/**
+	 * 管理者IDを設定する。
+	 * 
+	 * @param adminId 管理者ID
+	 */
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	/**
+	 * ユーザー名を取得する。
+	 * 
+	 * @return ユーザー名
+	 */
+	public String getUsername() {
+		return username;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	/**
+	 * ユーザー名を設定する。
+	 * 
+	 * @param username ユーザー名
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	/**
+	 * パスワードを取得する。
+	 * 
+	 * @return パスワード
+	 */
+	public String getPassword() {
+		return password;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	/**
+	 * パスワードを設定する。
+	 * 
+	 * @param password パスワード
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	/**
+	 * メールアドレスを取得する。
+	 * 
+	 * @return メールアドレス
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * メールアドレスを設定する。
+	 * 
+	 * @param email メールアドレス
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

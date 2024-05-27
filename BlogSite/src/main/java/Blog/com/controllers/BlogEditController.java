@@ -14,33 +14,41 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class BlogEditController {
 
-    @Autowired
-    private BlogPostsService blogPostsService;
+	@Autowired
+	private BlogPostsService blogPostsService;
 
-    @Autowired
-    private HttpSession session;
+	@Autowired
+	private HttpSession session;
 
-    // 編集画面の表示
-    @GetMapping("/blog/edit/{blogId}")
-    public String getBlogEditPage(@PathVariable int blogId, Model model) {
-        // セッションからログインしている人の情報をadminという変数に格納
-        Admins admin = (Admins) session.getAttribute("loginAdminInfo");
-        // もしadmin==null ログイン画面にリダイレクトする
-        if (admin == null) {
-            return "redirect:/login";
-        } else {
-            // 編集画面に表示させる情報を変数に格納 blogPosts
-            BlogPosts blogPosts = blogPostsService.blogEditCheck(blogId);
-            // もし、blogPosts==nullだったら、ブログ一覧画面ページいリダイレクトする
-            // そうでない場合、編集画面に編集する内容を渡す
-            // 編集画面を表示
-            if (blogPosts == null) {
-                return "admin_blog_list.html";
-            } else {
-                model.addAttribute("username", admin.getUsername());
-                model.addAttribute("blogPosts", blogPosts);
-                return "admin_blog_edit.html";
-            }
-        }
-    }
+	/**
+	 * ブログ編集画面を表示するメソッド。 指定されたブログIDのブログ記事を取得し、編集画面に表示します。
+	 * 管理者がログインしていない場合はログイン画面にリダイレクトします。
+	 *
+	 * @param blogId 編集するブログ記事のID
+	 * @param model  モデルオブジェクト
+	 * @return 編集画面のテンプレート名またはリダイレクト先
+	 */
+	@GetMapping("/blog/edit/{blogId}")
+	public String getBlogEditPage(@PathVariable int blogId, Model model) {
+		// セッションからログインしている管理者の情報を取得
+		Admins admin = (Admins) session.getAttribute("loginAdminInfo");
+
+		// 管理者がログインしていない場合はログイン画面にリダイレクト
+		if (admin == null) {
+			return "redirect:/login";
+		} else {
+			// 編集するブログ記事の情報を取得
+			BlogPosts blogPosts = blogPostsService.blogEditCheck(blogId);
+
+			// ブログ記事が存在しない場合はブログ一覧画面にリダイレクト
+			if (blogPosts == null) {
+				return "redirect:/admin/blog_list";
+			} else {
+				// ブログ記事が存在する場合は、編集画面に必要な情報をモデルに追加
+				model.addAttribute("username", admin.getUsername());
+				model.addAttribute("blogPosts", blogPosts);
+				return "admin_blog_edit";
+			}
+		}
+	}
 }

@@ -32,6 +32,13 @@ public class BlogRegisterController {
 	@Autowired
 	private HttpSession session;
 
+	/**
+	 * ブログ登録画面を表示するメソッド。 ユーザーがログインしているか確認し、ログインしていない場合はログインページにリダイレクトします。
+	 * ログインしている場合は、登録画面にユーザー名を表示します。
+	 *
+	 * @param model モデルオブジェクト
+	 * @return 登録画面のテンプレート名
+	 */
 	@GetMapping("/blog/register")
 	public String getBlogRegisterPage(Model model) {
 		Admins admin = (Admins) session.getAttribute("loginAdminInfo");
@@ -43,6 +50,17 @@ public class BlogRegisterController {
 		}
 	}
 
+	/**
+	 * ブログ登録処理を行うメソッド。 フォームから送信されたデータを受け取り、ブログ記事を保存します。
+	 * ファイルのアップロードおよびブログ記事の保存中にエラーが発生した場合は、エラーメッセージを表示します。
+	 *
+	 * @param title   ブログ記事のタイトル
+	 * @param time    ブログ記事の作成時間
+	 * @param content ブログ記事の内容
+	 * @param image   アップロードされた画像ファイル
+	 * @param model   モデルオブジェクト
+	 * @return ブログ一覧画面または登録画面のテンプレート名
+	 */
 	@PostMapping("/blog/register/process")
 	public String blogRegisterProcess(@RequestParam String title, @RequestParam String time,
 			@RequestParam String content, @RequestParam MultipartFile image, Model model) {
@@ -51,32 +69,39 @@ public class BlogRegisterController {
 		if (admin == null) {
 			return "redirect:/login";
 		} else {
+			// ファイル名を現在の日付と時間で一意に生成
 			String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date())
 					+ image.getOriginalFilename();
 
 			try {
+				// ファイルの保存パスを指定
 				Path uploadPath = Paths.get("src/main/resources/static/blog-image/" + fileName);
+				// 保存ディレクトリが存在しない場合は作成
 				if (!Files.exists(uploadPath.getParent())) {
 					Files.createDirectories(uploadPath.getParent());
 				}
+				// ファイルを指定したパスに保存
 				Files.copy(image.getInputStream(), uploadPath);
 				LOGGER.info("File uploaded successfully: " + fileName);
 			} catch (IOException e) {
+				// ファイルアップロード中にエラーが発生した場合の処理
 				LOGGER.log(Level.SEVERE, "File upload error", e);
 				model.addAttribute("errorMessage", "ファイルのアップロード中にエラーが発生しました。");
 				return "admin_blog_register";
 			}
 
 			try {
+				// ブログ記事を保存
 				blogPostsService.saveBlogPost(title, content, fileName, admin.getAdminId());
 				LOGGER.info("Blog post saved successfully");
 			} catch (Exception e) {
+				// ブログ記事保存中にエラーが発生した場合の処理
 				LOGGER.log(Level.SEVERE, "Blog post save error", e);
 				model.addAttribute("errorMessage", "ブログの保存中にエラーが発生しました。");
 				return "admin_blog_register";
 			}
 
-			// Correct view name
+			// ブログ一覧画面に遷移
 			return "admin_blog_list";
 		}
 	}

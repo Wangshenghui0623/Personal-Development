@@ -2,37 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>ブログ一覧</title>
-    <link rel="stylesheet" th:href="@{/css/admin_blog_list.css}">
+	<meta charset="UTF-8">
+	<title>ブログ一覧</title>
+	<!-- CSSファイルのリンク -->
+	<link rel="stylesheet" th:href="@{/css/admin_blog_list.css}">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="/admin_profile">個人資料</a></li>
-                    <li><a th:href="@{/admin/logout}">ログアウト</a></li>
-                    <li><a th:href="@{/blog/register}">ブログ登録</a></li>
-                </ul>
-            </nav>
-        </header>
-        <h1>ブログ一覧</h1>
-        <div class="blog-list">
-            <ul class="blogs">
-                <li th:each="blog : ${blogPostsList}"class="blog-item">
-                    <a th:href="@{/blog/edit/blogId}(blogId=${blog.blogId})">
-                        <img th:src="@{/blog-img/{imagePath}(imagePath=${blog.imagePath})}" alt="">
-                        <p th:text="${blog.title}">ブログタイトル</p>
-                        <p th:text="${blog.summary}">ブログ要約</p>
-						<a th:href="@{/blog/{id}(id=${blogPost.id})}" class="read-more">阅读全文</a>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
-    </div>
+	<div class="container">
+		<header>
+			<nav>
+				<ul>
+					<!-- 個人資料ページへのリンク -->
+					<li><a href="/admin_profile">個人資料</a></li>
+					<!-- ログアウトページへのリンク -->
+					<li><a th:href="@{/admin/logout}">ログアウト</a></li>
+					<!-- ブログ登録ページへのリンク -->
+					<li><a th:href="@{/blog/register}">ブログ登録</a></li>
+				</ul>
+			</nav>
+		</header>
+		<h1>ブログ一覧</h1>
+		<div class="blog-list">
+			<ul class="blogs">
+				<!-- ブログ記事のリストを表示 -->
+				<li th:each="blog : ${blogPostsList}" class="blog-item">
+					<a th:href="@{/blog/edit/{blogId}(blogId=${blog.postId})}">
+						<!-- ブログ記事の画像 -->
+						<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.imagePath})}" alt="">
+						<!-- ブログ記事のタイトル -->
+						<p th:text="${blog.title}">ブログタイトル</p>
+						<!-- ブログ記事の要約 -->
+						<p th:text="${blog.content}">ブログ要約</p>
+						<!-- 全文閲覧ページへのリンク -->
+						<a th:href="@{/blog/{id}(id=${blog.postId})}" class="read-more">全文閲覧</a>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
+	</div>
 </body>
 
 </html>

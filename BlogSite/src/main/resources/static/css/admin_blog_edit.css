@@ -1,91 +1,153 @@
+/* bodyタグのスタイル設定 */
 body {
-    font-family: Arial, sans-serif;
-    background-image: url('/images/admin_blog_edit.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+	font-family: Arial, sans-serif;
+	/* フォントをArialとし、Arialが利用できない場合はsans-serifを使用 */
+	background-image: url('/images/admin_blog_edit.jpg');
+	/* 背景画像を設定 */
+	background-size: cover;
+	/* 背景画像を全体に表示 */
+	background-position: center;
+	/* 背景画像を中央に配置 */
+	display: flex;
+	/* 子要素をフレックスボックスとして配置 */
+	justify-content: center;
+	/* 子要素を水平中央揃え */
+	align-items: center;
+	/* 子要素を垂直中央揃え */
+	height: 100vh;
+	/* ビューポートの高さを100%に設定 */
+	margin: 0;
+	/* デフォルトのマージンを削除 */
 }
 
+/* .containerクラスのスタイル設定 */
 .container {
-    width: 600px;
-    padding: 20px;
-    background-color: #ffffff5a;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+	width: 600px;
+	/* 幅を600ピクセルに設定 */
+	padding: 20px;
+	/* 内側の余白を20ピクセルに設定 */
+	background-color: #ffffff5a;
+	/* 半透明の白色背景 */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	/* ボックスシャドウを設定 */
+	border-radius: 8px;
+	/* 角を丸くする */
 }
 
+/* h1タグのスタイル設定 */
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
+	text-align: center;
+	/* テキストを中央揃え */
+	margin-bottom: 20px;
+	/* 下に20ピクセルの余白を設定 */
 }
 
+/* .form-groupクラスのスタイル設定 */
 .form-group {
-    margin-bottom: 15px;
+	margin-bottom: 15px;
+	/* 下に15ピクセルの余白を設定 */
 }
 
+/* labelタグのスタイル設定 */
 label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+	display: block;
+	/* ブロック要素として表示 */
+	font-weight: bold;
+	/* フォントを太字にする */
+	margin-bottom: 5px;
+	/* 下に5ピクセルの余白を設定 */
 }
 
+/* テキスト入力フィールド、テキストエリア、ファイル入力フィールドのスタイル設定 */
 input[type="text"],
 textarea,
 input[type="file"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+	width: 100%;
+	/* 幅を100%に設定 */
+	padding: 8px;
+	/* 内側の余白を8ピクセルに設定 */
+	margin-bottom: 5px;
+	/* 下に5ピクセルの余白を設定 */
+	border: 1px solid #ccc;
+	/* 灰色の枠線を設定 */
+	border-radius: 4px;
+	/* 角を丸くする */
+	box-sizing: border-box;
+	/* ボックスのサイズをborder-boxに設定 */
 }
 
+/* 日付入力フィールドのスタイル設定 */
 input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+	width: 100%;
+	/* 幅を100%に設定 */
+	padding: 8px;
+	/* 内側の余白を8ピクセルに設定 */
+	margin-bottom: 5px;
+	/* 下に5ピクセルの余白を設定 */
+	border: 1px solid #ccc;
+	/* 灰色の枠線を設定 */
+	border-radius: 4px;
+	/* 角を丸くする */
+	box-sizing: border-box;
+	/* ボックスのサイズをborder-boxに設定 */
 }
 
+/* テキストエリアのスタイル設定 */
 textarea {
-    resize: vertical;
+	resize: vertical;
+	/* 垂直方向にのみサイズ変更を許可 */
 }
 
-
+/* ボタンのスタイル設定 */
 button {
-    width: 20%;
-    padding: 5px;
-    background-color: #5cb85c;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 16px;
-    display:flex;
-    margin-right: 10px;
+	width: 20%;
+	/* 幅を20%に設定 */
+	padding: 5px;
+	/* 内側の余白を5ピクセルに設定 */
+	background-color: #5cb85c;
+	/* 背景色を設定 */
+	border: none;
+	/* 枠線を削除 */
+	border-radius: 8px;
+	/* 角を丸くする */
+	color: #fff;
+	/* テキストの色を白に設定 */
+	font-size: 16px;
+	/* フォントサイズを16ピクセルに設定 */
+	display: flex;
+	/* フレックスボックスを使用 */
+	margin-right: 10px;
+	/* 右に10ピクセルの余白を設定 */
 }
 
+/* ボタンのホバー時のスタイル設定 */
 button:hover {
-    background-color: #2e9079;
+	background-color: #2e9079;
+	/* 背景色を変更 */
 }
 
-
-
+/* ナビゲーションのスタイル設定 */
 nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+	list-style-type: none;
+	/* リストのスタイルを削除 */
+	padding: 0;
+	/* パディングを削除 */
+	margin: 0;
+	/* マージンを削除 */
 }
+
+/* ナビゲーションリストアイテムのスタイル設定 */
 nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+	display: inline-block;
+	/* インラインブロック要素として表示 */
+	margin-right: 20px;
+	/* 右に20ピクセルの余白を設定 */
 }
+
+/* ナビゲーションリンクのスタイル設定 */
 nav ul li a {
-    text-decoration: none;
-    color: #000;
+	text-decoration: none;
+	/* テキストの下線を削除 */
+	color: #000;
+	/* テキストの色を黒に設定 */
 }

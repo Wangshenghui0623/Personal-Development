@@ -24,7 +24,7 @@ public class AdminRegisterController {
 	@PostMapping("/admin/register/process")
 	public String adminRegisterProcrss(@RequestParam String username, @RequestParam String password,
 			@RequestParam String email) {
-		// もし、createAdminがtrue login.htmlに遷移
+		// もし、createAdminがtrueならlogin.htmlに遷移
 		// そうでない場合、admin_register.htmlにとどまります。
 		if (adminService.createAdmin(username, email, password)) {
 			return "login.html";
