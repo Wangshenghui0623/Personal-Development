@@ -36,17 +36,8 @@ public class Profiles {
 	public Profiles() {
 	}
 
-	/**
-	 * プロフィールのコンストラクタ。
-	 *
-	 * @param profileId      プロフィールID
-	 * @param adminId        管理者ID
-	 * @param fullName       フルネーム
-	 * @param bio            自己紹介文
-	 * @param profilePicture プロフィール画像
-	 * @param createdAt      作成日時
-	 * @param updatedAt      更新日時
-	 */
+	// プロフィールのコンストラクタ。
+
 	public Profiles(int profileId, int adminId, String fullName, String bio, String profilePicture, Timestamp createdAt,
 			Timestamp updatedAt) {
 		this.profileId = profileId;
@@ -60,128 +51,86 @@ public class Profiles {
 
 	// ゲッターとセッター
 
-	/**
-	 * プロフィールIDを取得する。
-	 * 
-	 * @return プロフィールID
-	 */
+	//プロフィールIDを取得する。
+
 	public int getProfileId() {
 		return profileId;
 	}
 
-	/**
-	 * プロフィールIDを設定する。
-	 * 
-	 * @param profileId プロフィールID
-	 */
+	// プロフィールIDを設定する。
+
 	public void setProfileId(int profileId) {
 		this.profileId = profileId;
 	}
 
-	/**
-	 * 管理者IDを取得する。
-	 * 
-	 * @return 管理者ID
-	 */
+	// 管理者IDを取得する。
+
 	public int getAdminId() {
 		return adminId;
 	}
 
-	/**
-	 * 管理者IDを設定する。
-	 * 
-	 * @param adminId 管理者ID
-	 */
+	// 管理者IDを設定する。
+
 	public void setAdminId(int adminId) {
 		this.adminId = adminId;
 	}
 
-	/**
-	 * フルネームを取得する。
-	 * 
-	 * @return フルネーム
-	 */
+	// フルネームを取得する。
+
 	public String getFullName() {
 		return fullName;
 	}
 
-	/**
-	 * フルネームを設定する。
-	 * 
-	 * @param fullName フルネーム
-	 */
+	// フルネームを設定する。
+
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
 
-	/**
-	 * 自己紹介文を取得する。
-	 * 
-	 * @return 自己紹介文
-	 */
+	// 自己紹介文を取得する。
+
 	public String getBio() {
 		return bio;
 	}
 
-	/**
-	 * 自己紹介文を設定する。
-	 * 
-	 * @param bio 自己紹介文
-	 */
+	// 自己紹介文を設定する。
+
 	public void setBio(String bio) {
 		this.bio = bio;
 	}
 
-	/**
-	 * プロフィール画像を取得する。
-	 * 
-	 * @return プロフィール画像
-	 */
+	// プロフィール画像を取得する。
+
 	public String getProfilePicture() {
 		return profilePicture;
 	}
 
-	/**
-	 * プロフィール画像を設定する。
-	 * 
-	 * @param profilePicture プロフィール画像
-	 */
+	// プロフィール画像を設定する。
+
 	public void setProfilePicture(String profilePicture) {
 		this.profilePicture = profilePicture;
 	}
 
-	/**
-	 * 作成日時を取得する。
-	 * 
-	 * @return 作成日時
-	 */
+	// 作成日時を取得する。
+
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	/**
-	 * 作成日時を設定する。
-	 * 
-	 * @param createdAt 作成日時
-	 */
+	// 作成日時を設定する。
+
 	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	/**
-	 * 更新日時を取得する。
-	 * 
-	 * @return 更新日時
-	 */
+	// 更新日時を取得する。
+
 	public Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
 
-	/**
-	 * 更新日時を設定する。
-	 * 
-	 * @param updatedAt 更新日時
-	 */
+	// 更新日時を設定する。
+
 	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}

@@ -30,15 +30,8 @@ public class Comments {
 	public Comments() {
 	}
 
-	/**
-	 * コメントのコンストラクタ。
-	 *
-	 * @param commentId     コメントID
-	 * @param postId        投稿ID
-	 * @param commenterName コメント者の名前
-	 * @param commentText   コメントテキスト
-	 * @param createdAt     作成日時
-	 */
+	// コメントのコンストラクタ。
+
 	public Comments(int commentId, int postId, String commenterName, String commentText, Timestamp createdAt) {
 		this.commentId = commentId;
 		this.postId = postId;
@@ -49,92 +42,61 @@ public class Comments {
 
 	// ゲッターとセッター
 
-	/**
-	 * コメントIDを取得する。
-	 * 
-	 * @return コメントID
-	 */
+	// コメントIDを取得する。
+
 	public int getCommentId() {
 		return commentId;
 	}
 
-	/**
-	 * コメントIDを設定する。
-	 * 
-	 * @param commentId コメントID
-	 */
+	// コメントIDを設定する。
+
 	public void setCommentId(int commentId) {
 		this.commentId = commentId;
 	}
 
-	/**
-	 * 投稿IDを取得する。
-	 * 
-	 * @return 投稿ID
-	 */
+	// 投稿IDを取得する。
+
 	public int getPostId() {
 		return postId;
 	}
 
-	/**
-	 * 投稿IDを設定する。
-	 * 
-	 * @param postId 投稿ID
-	 */
+	// 投稿IDを設定する。
+
 	public void setPostId(int postId) {
 		this.postId = postId;
 	}
 
-	/**
-	 * コメント者の名前を取得する。
-	 * 
-	 * @return コメント者の名前
-	 */
+	// コメント者の名前を取得する。
+
 	public String getCommenterName() {
 		return commenterName;
 	}
 
-	/**
-	 * コメント者の名前を設定する。
-	 * 
-	 * @param commenterName コメント者の名前
-	 */
+	// コメント者の名前を設定する。
+
 	public void setCommenterName(String commenterName) {
 		this.commenterName = commenterName;
 	}
 
-	/**
-	 * コメントテキストを取得する。
-	 * 
-	 * @return コメントテキスト
-	 */
+	// コメントテキストを取得する。
 	public String getCommentText() {
 		return commentText;
 	}
 
-	/**
-	 * コメントテキストを設定する。
-	 * 
-	 * @param commentText コメントテキスト
-	 */
+	// コメントテキストを設定する。
+
 	public void setCommentText(String commentText) {
 		this.commentText = commentText;
 	}
 
-	/**
-	 * 作成日時を取得する。
-	 * 
-	 * @return 作成日時
-	 */
+	// 作成日時を取得する。
+
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	/**
-	 * 作成日時を設定する。
-	 * 
-	 * @param createdAt 作成日時
-	 */
+	// 作成日時を設定する。
+
 	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}

@@ -11,11 +11,8 @@ public class LogoutController {
 	@Autowired
 	private HttpSession session;
 
-	/**
-	 * ログアウト処理を行うメソッド。 現在のセッションを無効化し、ログインページにリダイレクトします。
-	 *
-	 * @return ログインページへのリダイレクト指示
-	 */
+	// ログアウト処理を行うメソッド。 現在のセッションを無効化し、ログインページにリダイレクトします。
+
 	@GetMapping("/admin/logout")
 	public String adminLogout() {
 		// セッションの無効化

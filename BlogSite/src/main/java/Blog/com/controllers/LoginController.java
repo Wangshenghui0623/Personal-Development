@@ -19,24 +19,15 @@ public class LoginController {
 	@Autowired
 	private HttpSession session;
 
-	/**
-	 * ログイン画面を表示するメソッド。
-	 * 
-	 * @return ログイン画面のテンプレート名
-	 */
+	// ログイン画面を表示するメソッド。
 	@GetMapping("/admin/login")
 	public String login() {
 		return "login";
 	}
 
-	/**
-	 * ログイン処理を行うメソッド。 フォームから送信されたユーザー名とパスワードを使用して認証を行います。
-	 * 認証に成功した場合は、管理者情報をセッションに保存し、ブログ一覧画面にリダイレクトします。 認証に失敗した場合は、再度ログイン画面を表示します。
-	 *
-	 * @param username ユーザー名
-	 * @param password パスワード
-	 * @return リダイレクト先またはログイン画面のテンプレート名
-	 */
+	// ログイン処理を行うメソッド。 フォームから送信されたユーザー名とパスワードを使用して認証を行います。
+	// 認証に成功した場合は、管理者情報をセッションに保存し、ブログ一覧画面にリダイレクトします。 認証に失敗した場合は、再度ログイン画面を表示します。
+
 	@PostMapping("/admin/login/process")
 	public String adminLoginProcess(@RequestParam String username, @RequestParam String password) {
 		// loginCheckメソッドを呼び出してその結果をadminという変数に格納

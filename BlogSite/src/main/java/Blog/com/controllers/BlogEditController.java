@@ -20,14 +20,9 @@ public class BlogEditController {
 	@Autowired
 	private HttpSession session;
 
-	/**
-	 * ブログ編集画面を表示するメソッド。 指定されたブログIDのブログ記事を取得し、編集画面に表示します。
-	 * 管理者がログインしていない場合はログイン画面にリダイレクトします。
-	 *
-	 * @param blogId 編集するブログ記事のID
-	 * @param model  モデルオブジェクト
-	 * @return 編集画面のテンプレート名またはリダイレクト先
-	 */
+	// ブログ編集画面を表示するメソッド。 指定されたブログIDのブログ記事を取得し、編集画面に表示します。
+	// 管理者がログインしていない場合はログイン画面にリダイレクトします。
+
 	@GetMapping("/blog/edit/{blogId}")
 	public String getBlogEditPage(@PathVariable int blogId, Model model) {
 		// セッションからログインしている管理者の情報を取得

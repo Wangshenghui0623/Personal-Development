@@ -32,13 +32,9 @@ public class BlogRegisterController {
 	@Autowired
 	private HttpSession session;
 
-	/**
-	 * ブログ登録画面を表示するメソッド。 ユーザーがログインしているか確認し、ログインしていない場合はログインページにリダイレクトします。
-	 * ログインしている場合は、登録画面にユーザー名を表示します。
-	 *
-	 * @param model モデルオブジェクト
-	 * @return 登録画面のテンプレート名
-	 */
+	// ブログ登録画面を表示するメソッド。 ユーザーがログインしているか確認し、ログインしていない場合はログインページにリダイレクトします。
+	// ログインしている場合は、登録画面にユーザー名を表示します。
+
 	@GetMapping("/blog/register")
 	public String getBlogRegisterPage(Model model) {
 		Admins admin = (Admins) session.getAttribute("loginAdminInfo");
@@ -50,17 +46,8 @@ public class BlogRegisterController {
 		}
 	}
 
-	/**
-	 * ブログ登録処理を行うメソッド。 フォームから送信されたデータを受け取り、ブログ記事を保存します。
-	 * ファイルのアップロードおよびブログ記事の保存中にエラーが発生した場合は、エラーメッセージを表示します。
-	 *
-	 * @param title   ブログ記事のタイトル
-	 * @param time    ブログ記事の作成時間
-	 * @param content ブログ記事の内容
-	 * @param image   アップロードされた画像ファイル
-	 * @param model   モデルオブジェクト
-	 * @return ブログ一覧画面または登録画面のテンプレート名
-	 */
+	// ブログ登録処理を行うメソッド。 フォームから送信されたデータを受け取り、ブログ記事を保存します。
+	// ファイルのアップロードおよびブログ記事の保存中にエラーが発生した場合は、エラーメッセージを表示します。
 	@PostMapping("/blog/register/process")
 	public String blogRegisterProcess(@RequestParam String title, @RequestParam String time,
 			@RequestParam String content, @RequestParam MultipartFile image, Model model) {

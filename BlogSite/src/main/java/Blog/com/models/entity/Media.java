@@ -27,14 +27,8 @@ public class Media {
 	public Media() {
 	}
 
-	/**
-	 * メディアのコンストラクタ。
-	 *
-	 * @param mediaId   メディアID
-	 * @param postId    投稿ID
-	 * @param filePath  ファイルパス
-	 * @param createdAt 作成日時
-	 */
+	// メディアのコンストラクタ。
+
 	public Media(int mediaId, int postId, String filePath, Timestamp createdAt) {
 		this.mediaId = mediaId;
 		this.postId = postId;
@@ -44,74 +38,50 @@ public class Media {
 
 	// ゲッターとセッター
 
-	/**
-	 * メディアIDを取得する。
-	 * 
-	 * @return メディアID
-	 */
+	// メディアIDを取得する。
+
 	public int getMediaId() {
 		return mediaId;
 	}
 
-	/**
-	 * メディアIDを設定する。
-	 * 
-	 * @param mediaId メディアID
-	 */
+	// メディアIDを設定する。
+
 	public void setMediaId(int mediaId) {
 		this.mediaId = mediaId;
 	}
 
-	/**
-	 * 投稿IDを取得する。
-	 * 
-	 * @return 投稿ID
-	 */
+	// 投稿IDを取得する。
+
 	public int getPostId() {
 		return postId;
 	}
 
-	/**
-	 * 投稿IDを設定する。
-	 * 
-	 * @param postId 投稿ID
-	 */
+	// 投稿IDを設定する。
+
 	public void setPostId(int postId) {
 		this.postId = postId;
 	}
 
-	/**
-	 * ファイルパスを取得する。
-	 * 
-	 * @return ファイルパス
-	 */
+	// ファイルパスを取得する。
+
 	public String getFilePath() {
 		return filePath;
 	}
 
-	/**
-	 * ファイルパスを設定する。
-	 * 
-	 * @param filePath ファイルパス
-	 */
+	// ファイルパスを設定する。
+
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
 
-	/**
-	 * 作成日時を取得する。
-	 * 
-	 * @return 作成日時
-	 */
+	// 作成日時を取得する。
+
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	/**
-	 * 作成日時を設定する。
-	 * 
-	 * @param createdAt 作成日時
-	 */
+	// 作成日時を設定する。
+
 	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}

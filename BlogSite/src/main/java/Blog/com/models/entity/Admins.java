@@ -25,13 +25,8 @@ public class Admins {
 	public Admins() {
 	}
 
-	/**
-	 * 管理者のコンストラクタ。
-	 *
-	 * @param username ユーザー名
-	 * @param password パスワード
-	 * @param email    メールアドレス
-	 */
+	// 管理者のコンストラクタ。
+
 	public Admins(String username, String password, String email) {
 		this.username = username;
 		this.password = password;
@@ -40,74 +35,50 @@ public class Admins {
 
 	// ゲッターとセッター
 
-	/**
-	 * 管理者IDを取得する。
-	 * 
-	 * @return 管理者ID
-	 */
+	// 管理者IDを取得する。
+
 	public int getAdminId() {
 		return adminId;
 	}
 
-	/**
-	 * 管理者IDを設定する。
-	 * 
-	 * @param adminId 管理者ID
-	 */
+	// 管理者IDを設定する。
+
 	public void setAdminId(int adminId) {
 		this.adminId = adminId;
 	}
 
-	/**
-	 * ユーザー名を取得する。
-	 * 
-	 * @return ユーザー名
-	 */
+	// ユーザー名を取得する。
+
 	public String getUsername() {
 		return username;
 	}
 
-	/**
-	 * ユーザー名を設定する。
-	 * 
-	 * @param username ユーザー名
-	 */
+	// ユーザー名を設定する。
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	/**
-	 * パスワードを取得する。
-	 * 
-	 * @return パスワード
-	 */
+	// パスワードを取得する。
+
 	public String getPassword() {
 		return password;
 	}
 
-	/**
-	 * パスワードを設定する。
-	 * 
-	 * @param password パスワード
-	 */
+	// パスワードを設定する。
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	/**
-	 * メールアドレスを取得する。
-	 * 
-	 * @return メールアドレス
-	 */
+	// メールアドレスを取得する。
+
 	public String getEmail() {
 		return email;
 	}
 
-	/**
-	 * メールアドレスを設定する。
-	 * 
-	 * @param email メールアドレス
-	 */
+	// メールアドレスを設定する。
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
