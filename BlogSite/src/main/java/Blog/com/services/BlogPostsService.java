@@ -6,13 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import Blog.com.models.dao.Blog_postsDao;
+import Blog.com.models.dao.BlogPostsDao;
 import Blog.com.models.entity.BlogPosts;
 
 @Service
 public class BlogPostsService {
 	@Autowired
-	private Blog_postsDao blogPostsDao;
+	private BlogPostsDao blogPostsDao;
 
 	public List<BlogPosts> selectAllAdminBlogList(int adminId) {
 		return blogPostsDao.findByAdminId(adminId);

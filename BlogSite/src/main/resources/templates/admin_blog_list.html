@@ -21,11 +21,12 @@
         <h1>ブログ一覧</h1>
         <div class="blog-list">
             <ul class="blogs">
-                <li th:each="blog : ${blogPostsList}">
+                <li th:each="blog : ${blogPostsList}"class="blog-item">
                     <a th:href="@{/blog/edit/blogId}(blogId=${blog.blogId})">
                         <img th:src="@{/blog-img/{imagePath}(imagePath=${blog.imagePath})}" alt="">
-                        <p th:text="${blog.title}"></p>
-                        <p th:text="${blog.summary}"></p>
+                        <p th:text="${blog.title}">ブログタイトル</p>
+                        <p th:text="${blog.summary}">ブログ要約</p>
+						<a th:href="@{/blog/{id}(id=${blogPost.id})}" class="read-more">阅读全文</a>
                     </a>
                 </li>
             </ul>

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import Blog.com.models.entity.BlogPosts;
 
 @Repository
-public interface Blog_postsDao extends JpaRepository<BlogPosts, Integer> {
+public interface BlogPostsDao extends JpaRepository<BlogPosts, Integer> {
 
 	// 保存処理と更新処理
 	BlogPosts save(BlogPosts blogPost);
