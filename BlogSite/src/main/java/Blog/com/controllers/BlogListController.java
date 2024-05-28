@@ -27,7 +27,9 @@ public class BlogListController {
 			return "login.html";
 		} else {
 			List<BlogPosts> blogPostsList = blogpostsService.selectAllAdminBlogList(admin.getAdminId());
+			//
 			model.addAttribute("username", admin.getUsername());
+			//
 			model.addAttribute("blogPostsList", blogPostsList);
 			// 追加記事の表示
 			System.out.println("Admin: " + admin);

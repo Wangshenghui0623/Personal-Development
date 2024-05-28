@@ -48,15 +48,31 @@ public class BlogEditController {
 			}
 		}
 	}
+
+	@GetMapping("/blog/view/{blogId}")
+	public String viewBlogPost(@PathVariable int blogId, Model model) {
+		BlogPosts blogPost = blogPostsService.blogEditCheck(blogId);
+		if (blogPost != null) {
+			blogPostsService.incrementReaderCount(blogId);
+			model.addAttribute("blogPost", blogPost);
+			return "blog_view";
+		} else {
+			return "redirect:/admin/blog_list"; // ブログ記事が存在しない場合はブログ一覧画面にリダイレクト
+		}
+	}
+
+	@GetMapping("/blog/delete/{blogId}")
+
 	@PostMapping("/blog_edit")
-	public String updateBlogPost(@RequestParam int postId, @RequestParam String title, @RequestParam String content, Model model) {
-	    try {
-	        blogPostsService.updateBlogPost(postId, title, content);
-	        return "redirect:/admin/blog_list"; // 更新成功后重定向到博客列表页面
-	    } catch (Exception e) {
-	        model.addAttribute("error", "更新中にエラーが発生しました。");
-	        return "admin_blog_edit"; // 更新失败后返回编辑页面并显示错误信息
-	    }
+	public String updateBlogPost(@RequestParam int postId, @RequestParam String title, @RequestParam String content,
+			Model model) {
+		try {
+			blogPostsService.updateBlogPost(postId, title, content);
+			return "redirect:/admin/blog_list"; // 更新できれば、ブログ一覧画面へ
+		} catch (Exception e) {
+			model.addAttribute("error", "更新中にエラーが発生しました。");
+			return "admin_blog_edit"; // 更新失敗後、ブログ編集へ、エラー情報を報告する
+		}
 	}
 
 }

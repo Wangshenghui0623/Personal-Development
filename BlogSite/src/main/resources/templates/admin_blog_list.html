@@ -2,42 +2,42 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>ブログ一覧</title>
-	<!-- CSSファイルのリンク -->
-	<link rel="stylesheet" th:href="@{/css/admin_blog_list.css}">
+    <meta charset="UTF-8">
+    <title>ブログ一覧</title>
+    <!-- CSSファイルのリンク -->
+    <link rel="stylesheet" th:href="@{/css/admin_blog_list.css}">
 </head>
 
 <body>
-	<div class="container">
-		<header>
-			<nav>
-				<ul>
-					<!-- 個人資料ページへのリンク -->
-					<li><a th:href="@{/admin_profile}">個人資料</a></li>
-					<!-- ブログ登録ページへのリンク -->
-					<li><a th:href="@{/blog/register}">ブログ登録</a></li>
-					<!-- ログアウトページへのリンク -->
-					<li><a th:href="@{/admin/logout}">ログアウト</a></li>
-				</ul>
-			</nav>
-		</header>
-		<h1>ブログ一覧</h1>
-		<div class="blog-list">
-			<ul class="blogs">
-				<!-- ブログ記事のリストを表示 -->
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <!-- 個人資料ページへのリンク -->
+                    <li><a th:href="@{/admin_profile}">個人資料</a></li>
+                    <!-- ブログ登録ページへのリンク -->
+                    <li><a th:href="@{/blog/register}">ブログ登録</a></li>
+                    <!-- ログアウトページへのリンク -->
+                    <li><a th:href="@{/admin/logout}">ログアウト</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h1>ブログ一覧</h1>
+        <div class="blog-list">
+            <ul class="blogs">
+                <!-- ブログ記事のリストを表示 -->
 				<li th:each="blog : ${blogPostsList}" class="blog-item">
-					<a th:href="@{/blog/edit/{blogId}(blogId=${blog.postId})}">
-						<!-- ブログ記事の画像 -->
-						<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.imagePath})}" alt="">
-						<p th:text="${blog.title}">ブログタイトル</p>
-						<a th:text="${blog.content}">ブログ要約</a>
-					</a>
+				    <a th:href="@{/blog/view/{blogId}(blogId=${blog.postId})}">
+				        <img th:src="@{/blog-img/{imagePath}(imagePath=${blog.imagePath})}" alt="">
+				        <p th:text="${blog.title}">ブログタイトル</p>
+				        <p th:text="${blog.content}">ブログ要約</p>
+				        <p>読者数: <span th:text="${blog.readerCount}">0</span></p>
+				    </a>
 				</li>
-			</ul>
-		</div>
-		<footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
-	</div>
+            </ul>
+        </div>
+        <footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
+    </div>
 </body>
 
 </html>

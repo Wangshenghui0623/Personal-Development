@@ -20,6 +20,7 @@ public class BlogPosts {
 	private String imagePath; // 画像のパス
 	private Timestamp createdAt; // 作成日時
 	private Timestamp updatedAt; // 更新日時
+	private int readerCount;
 
 	// デフォルトコンストラクタ
 	public BlogPosts() {
@@ -98,4 +99,17 @@ public class BlogPosts {
 	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
+	public int getReaderCount() {
+		return readerCount;
+	}
+
+	public void setReaderCount(int readerCount) {
+		this.readerCount = readerCount;
+	}
+
+	public String getFullImagePath() {
+		return "/static/blog-images/" + this.imagePath;
+	}
+
 }

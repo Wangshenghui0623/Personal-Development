@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
-	<title>ブログ閲覧</title>
-	<!-- CSSファイルのリンク -->
-	<link rel="stylesheet" href="/css/blog_view.css">
+	<title>ブログ表示</title>
+	<link rel="stylesheet" th:href="@{/css/blog_view.css}">
 </head>
 
 <body>
@@ -13,45 +12,20 @@
 		<header>
 			<nav>
 				<ul>
-					<!-- 個人資料ページへのリンク -->
-					<li><a href="http://127.0.0.1:5500/profile.html">個人資料</a></li>
-					<!-- ブログ一覧ページへのリンク -->
-					<li><a href="http://127.0.0.1:5500/blog_list.html">ブログ一覧</a></li>
-					<!-- ログインページへのリンク -->
-					<li><a href="http://127.0.0.1:5500/login.html">ログイン</a></li>
+					<li><a th:href="@{/admin/blog_list}">ブログ一覧</a></li>
+					<li><a th:href="@{/admin/logout}">ログアウト</a></li>
 				</ul>
 			</nav>
 		</header>
-		<h1>ブログタイトル</h1>
-		<p>ブログの詳細内容</p>
-		<hr>
-		<h2>コメント</h2>
-		<div class="comments">
-			<!-- コメントアイテム1 -->
-			<div class="comment">
-				<p><strong>ユーザー1:</strong> コメント内容1...</p>
-			</div>
-			<!-- コメントアイテム2 -->
-			<div class="comment">
-				<p><strong>ユーザー2:</strong> コメント内容2...</p>
-			</div>
-			<!-- 追加のコメントアイテムをここに挿入 -->
-		</div>
-		<hr>
-		<h2>コメントを追加</h2>
-		<!-- コメント追加フォーム -->
-		<form action="/add-comment" method="post">
-			<div class="form-group">
-				<label for="username">ユーザー名:</label>
-				<input type="text" id="username" name="username" placeholder="ユーザー名を書いてください。" required>
-			</div>
-			<div class="form-group">
-				<label for="comment">コメント:</label>
-				<textarea id="comment" name="comment" rows="4" placeholder="コメントを書いてください。" required></textarea>
-			</div>
-			<button type="submit">コメントを追加</button>
-			<!-- ブログリストに戻るボタン -->
-			<button type="button" onclick="location.href='http://127.0.0.1:5500/blog_list.html'">ブログリスト</button>
+		<h1 th:text="${blogPost.title}">ブログタイトル</h1>
+		<p th:text="${blogPost.content}">ブログ内容</p>
+		<p>読者数: <span th:text="${blogPost.readerCount}">0</span></p>
+		<img th:src="@{'/static/blog-images/' + ${blogPost.imagePath}}" alt="Blog Image">
+		<a th:href="@{/blog/edit/{blogId}(blogId=${blogPost.postId})}">
+			<button>編集</button>
+		</a>
+		<form th:action="@{/blog/delete/{blogId}(blogId=${blogPost.postId})}" method="post" onsubmit="return confirm('本当に削除しますか？');">
+		    <button type="submit">削除</button>
 		</form>
 		<footer>CopyLight<small>&copy;WangShenghui's blog</small></footer>
 	</div>

@@ -44,15 +44,17 @@ public class BlogPostsService {
 		blogPostsDao.save(blogPost);
 	}
 
-	// 削除処理のチェック
-	// もし、コントローラーからもらったpostIdがnullであれば
-	// 削除できないこと
-	// そうでない場合
-	// deleteByPostIdを使用してブログの削除
-	// true
-	public boolean deletePost(int postId) {
-		blogPostsDao.deleteByPostId(postId);
-		return true;
+	public void incrementReaderCount(int postId) {
+		BlogPosts blogPost = blogPostsDao.findById(postId).orElse(null);
+		if (blogPost != null) {
+			blogPost.setReaderCount(blogPost.getReaderCount() + 1);
+			blogPostsDao.save(blogPost);
+		}
+	}
+
+	// 記事削除する方法
+	public void deletePost(int postId) {
+		blogPostsDao.deleteById(postId);
 	}
 
 }
