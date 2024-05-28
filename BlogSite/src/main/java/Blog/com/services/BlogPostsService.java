@@ -31,4 +31,28 @@ public class BlogPostsService {
 	public BlogPosts blogEditCheck(int blogId) {
 		return blogPostsDao.findById(blogId).orElse(null);
 	}
+
+	// ブログ記事を更新する
+	public void updateBlogPost(int postId, String title, String content) throws Exception {
+		BlogPosts blogPost = blogPostsDao.findById(postId).orElse(null);
+		if (blogPost == null) {
+			throw new Exception("ブログ記事が見つかりません");
+		}
+		blogPost.setTitle(title);
+		blogPost.setContent(content);
+		blogPost.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
+		blogPostsDao.save(blogPost);
+	}
+
+	// 削除処理のチェック
+	// もし、コントローラーからもらったpostIdがnullであれば
+	// 削除できないこと
+	// そうでない場合
+	// deleteByPostIdを使用してブログの削除
+	// true
+	public boolean deletePost(int postId) {
+		blogPostsDao.deleteByPostId(postId);
+		return true;
+	}
+
 }

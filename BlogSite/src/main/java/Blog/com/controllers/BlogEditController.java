@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import Blog.com.models.entity.Admins;
 import Blog.com.models.entity.BlogPosts;
@@ -46,4 +48,15 @@ public class BlogEditController {
 			}
 		}
 	}
+	@PostMapping("/blog_edit")
+	public String updateBlogPost(@RequestParam int postId, @RequestParam String title, @RequestParam String content, Model model) {
+	    try {
+	        blogPostsService.updateBlogPost(postId, title, content);
+	        return "redirect:/admin/blog_list"; // 更新成功后重定向到博客列表页面
+	    } catch (Exception e) {
+	        model.addAttribute("error", "更新中にエラーが発生しました。");
+	        return "admin_blog_edit"; // 更新失败后返回编辑页面并显示错误信息
+	    }
+	}
+
 }

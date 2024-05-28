@@ -30,12 +30,8 @@
 					<a th:href="@{/blog/edit/{blogId}(blogId=${blog.postId})}">
 						<!-- ブログ記事の画像 -->
 						<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.imagePath})}" alt="">
-						<!-- ブログ記事のタイトル -->
 						<p th:text="${blog.title}">ブログタイトル</p>
-						<!-- ブログ記事の要約 -->
-						<p th:text="${blog.content}">ブログ要約</p>
-						<!-- 全文閲覧ページへのリンク -->
-						<a th:href="@{/blog/{id}(id=${blog.postId})}" class="read-more">全文閲覧</a>
+						<a th:text="${blog.content}">ブログ要約</a>
 					</a>
 				</li>
 			</ul>
