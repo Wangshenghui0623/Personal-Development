@@ -20,7 +20,7 @@
 		<h1 th:text="${blogPost.title}">ブログタイトル</h1>
 		<p th:text="${blogPost.content}">ブログ内容</p>
 		<p>読者数: <span th:text="${blogPost.readerCount}">0</span></p>
-		<img th:src="@{'/static/blog-images/' + ${blogPost.imagePath}}" alt="Blog Image">
+		<img th:src="@{'/blog-images/' + ${blogPost.imagePath}}" alt="Blog Image">
 		<a th:href="@{/blog/edit/{blogId}(blogId=${blogPost.postId})}">
 			<button>編集</button>
 		</a>
